@@ -2,14 +2,20 @@ import discord
 from discord.ext import commands
 from datetime import date
 import configparser
+import os
 
 # Header files
 import D2Featured
 
 config=configparser.ConfigParser()
-config.read('Config.ini')
 
-MyBotKey = config['DiscordBotKey']['key']
+# Get the absolute path of the folder where this script lives
+script_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(script_dir, 'config.ini')
+
+config.read(config_path)
+
+MyBotKey = config['discordbotkey']['key']
 
 D2Raids = D2Featured.D2Raids
 D2Dungeons = D2Featured.D2Dungeons
