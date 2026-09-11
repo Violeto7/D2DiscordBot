@@ -41,13 +41,32 @@ async def cmd_featured(ctx):
     DungeonPos2 = D2Featured.DungeonPos2
     await ctx.send(f"The featured raids this week are:          **{D2Raids[RaidPos1]}** and **{D2Raids[RaidPos2]}**\nThe featured dungeons this week are:  **{D2Dungeons[DungeonPos1]}** and **{D2Dungeons[DungeonPos2]}**")
 
+@client.command(name='featurednext')
+async def cmd_featuredNext(ctx, weeksInFuture = 1):
+    D2Featured.updatePos()
+    RaidPos1 = D2Featured.RaidPos1
+    RaidPos2 = D2Featured.RaidPos2
+    DungeonPos1 = D2Featured.DungeonPos1
+    DungeonPos2 = D2Featured.DungeonPos2
+
+    RaidInWeeks1 = D2Raids[(RaidPos1 + weeksInFuture) % D2Featured.D2RaidsLen]
+    RaidInWeeks2 = D2Raids[(RaidPos2 + weeksInFuture) % D2Featured.D2RaidsLen]
+    DungeonInWeeks1 = D2Dungeons[(DungeonPos1 + weeksInFuture) % D2Featured.D2DungeonsLen]
+    DungeonInWeeks2 = D2Dungeons[(DungeonPos2 + weeksInFuture) % D2Featured.D2DungeonsLen]
+
+    if weeksInFuture == 1:
+        await ctx.send(f"The featured raids next week are:          **{RaidInWeeks1}** and **{RaidInWeeks2}**\nThe featured dungeons next week are:  **{DungeonInWeeks1}** and **{DungeonInWeeks2}**")
+    else:
+        await ctx.send(f"The featured raids {weeksInFuture} weeks from now are:          **{RaidInWeeks1}** and **{RaidInWeeks2}**\nThe featured dungeons {weeksInFuture} weeks from now are:  **{DungeonInWeeks1}** and **{DungeonInWeeks2}**")
+
 @client.command(name='help')
 async def cmd_help(ctx):
     await ctx.send(
 f"""
 ### **The currently implemented commands are as follows:**
-> - !help     - Display all currently implemented commands along with a brief description (dude, you just did this surely we don't need this)
-> - !featured - Lists the featured raids and dungeons for this week
+> - !help                      - Display all currently implemented commands along with a brief description (dude, you just did this surely we don't need this)
+> - !featured              - Lists the featured raids and dungeons for this week
+> - !featurednext x   - Lists the featured raids x weeks from now, x is optional and x = 1 (or next week) by default
 """)
 
 
