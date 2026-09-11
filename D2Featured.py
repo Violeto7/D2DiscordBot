@@ -12,35 +12,17 @@ num_weeks_since_origin = (present_date-past_date).days//7
 
 print(f"It has been {num_weeks_since_origin} weeks since this program was written. Using {num_weeks_since_origin} to determine the current position in the raid and dungeon lists.")
 
-RaidPos1 = 4 + num_weeks_since_origin
-RaidPos2 = 8 + num_weeks_since_origin
-DungeonPos1 = 3 + num_weeks_since_origin
-DungeonPos2 = 7 + num_weeks_since_origin
-
-if RaidPos1 >= D2RaidsLen:
-    RaidPos1 -= D2RaidsLen
-if RaidPos2 >= D2RaidsLen:
-    RaidPos2 -= D2RaidsLen
-if DungeonPos1 >= D2DungeonsLen:
-    DungeonPos1 -= D2DungeonsLen
-if DungeonPos2 >= D2DungeonsLen:
-    DungeonPos2 -= D2DungeonsLen
+RaidPos1 = (4 + num_weeks_since_origin) % D2RaidsLen
+RaidPos2 = (8 + num_weeks_since_origin) % D2RaidsLen
+DungeonPos1 = (3 + num_weeks_since_origin) % D2DungeonsLen
+DungeonPos2 = (7 + num_weeks_since_origin) % D2DungeonsLen
 
 def updatePos():
     present_date = date.today()
 
     num_weeks_since_origin = (present_date-past_date).days//7
 
-    RaidPos1 = 4 + num_weeks_since_origin
-    RaidPos2 = 8 + num_weeks_since_origin
-    DungeonPos1 = 3 + num_weeks_since_origin
-    DungeonPos2 = 7 + num_weeks_since_origin
-
-    if RaidPos1 >= D2RaidsLen:
-        RaidPos1 -= D2RaidsLen
-    if RaidPos2 >= D2RaidsLen:
-        RaidPos2 -= D2RaidsLen
-    if DungeonPos1 >= D2DungeonsLen:
-        DungeonPos1 -= D2DungeonsLen
-    if DungeonPos2 >= D2DungeonsLen:
-        DungeonPos2 -= D2DungeonsLen
+    RaidPos1 = (4 + num_weeks_since_origin) % D2RaidsLen
+    RaidPos2 = (8 + num_weeks_since_origin) % D2RaidsLen
+    DungeonPos1 = (3 + num_weeks_since_origin) % D2DungeonsLen
+    DungeonPos2 = (7 + num_weeks_since_origin) % D2DungeonsLen
