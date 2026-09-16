@@ -38,7 +38,7 @@ class DailyJobCog(commands.Cog):
         role_id = 1547422582867759105
         channel = self.bot.get_channel(channel_id)
         if channel:
-            await channel.send(f"<&{role_id}>\nThe featured raids this week are:          **{D2Raids[RaidPos1]}** and **{D2Raids[RaidPos2]}**\nThe featured dungeons this week are:  **{D2Dungeons[DungeonPos1]}** and **{D2Dungeons[DungeonPos2]}**")
+            await channel.send(f"<@&{role_id}>\nThe featured raids this week are:          **{D2Raids[RaidPos1]}** and **{D2Raids[RaidPos2]}**\nThe featured dungeons this week are:  **{D2Dungeons[DungeonPos1]}** and **{D2Dungeons[DungeonPos2]}**")
 
         # 2. Log when the NEXT day's execution will happen
         # Now that the loop has run once, this will NOT be None

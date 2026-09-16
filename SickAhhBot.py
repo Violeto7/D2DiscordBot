@@ -55,7 +55,7 @@ async def cmd_featuredNext(ctx, weeksInFuture = 1):
     DungeonInWeeks2 = D2Dungeons[(DungeonPos2 + weeksInFuture) % D2Featured.D2DungeonsLen]
 
     if weeksInFuture == 1:
-        await ctx.send(f"The featured raids next week are:          **{RaidInWeeks1}** and **{RaidInWeeks2}**\nThe featured dungeons next week are:  **{DungeonInWeeks1}** and **{DungeonInWeeks2}**")
+        await ctx.send(f"The featured raids next week are:           **{RaidInWeeks1}** and **{RaidInWeeks2}**\nThe featured dungeons next week are:  **{DungeonInWeeks1}** and **{DungeonInWeeks2}**")
     else:
         await ctx.send(f"The featured raids {weeksInFuture} weeks from now are:          **{RaidInWeeks1}** and **{RaidInWeeks2}**\nThe featured dungeons {weeksInFuture} weeks from now are:  **{DungeonInWeeks1}** and **{DungeonInWeeks2}**")
 

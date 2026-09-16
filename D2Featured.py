@@ -22,6 +22,11 @@ def updatePos():
 
     num_weeks_since_origin = (present_date-past_date).days//7
 
+    global RaidPos1 
+    global RaidPos2
+    global DungeonPos1
+    global DungeonPos2
+    
     RaidPos1 = (4 + num_weeks_since_origin) % D2RaidsLen
     RaidPos2 = (8 + num_weeks_since_origin) % D2RaidsLen
     DungeonPos1 = (3 + num_weeks_since_origin) % D2DungeonsLen
